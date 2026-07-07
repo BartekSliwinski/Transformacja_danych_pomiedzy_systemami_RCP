@@ -21,7 +21,7 @@ AVG_SHIFTS_PER_EMPLOYEE = 1
 
 OVERTIME_PROBABILITY = 0.15
 SHIFT_DURATION_MEAN = 8
-SHIFT_DURATION_STD = 2
+SHIFT_DURATION_STD = 0.15
 
 POSITIONS_IN_DEPARTMENTS = {
     "IT": [
@@ -89,5 +89,17 @@ DEVICES = [
     "MAIN01", "MAIN02", "MAIN03",
     "SERVICE01", 
     "WAREHOUSE01",
+    "Production01", "Production02"
 ]
 NUM_OF_DEVICES = len(DEVICES)
+
+DEPARTMENT_DEVICES = {
+    "IT": ["MAIN01", "MAIN02"],
+    "HR": ["MAIN01"],
+    "Finance": ["MAIN01", "MAIN03"],
+    "Sales": ["MAIN02", "MAIN03"],
+    "Marketing": ["MAIN02"],
+    "Production": ["PRODUCTION01", "PRODUCTION02"],
+    "Warehouse": ["WAREHOUSE01"],
+    "Support": ["SERVICE01", "MAIN03"]
+}
