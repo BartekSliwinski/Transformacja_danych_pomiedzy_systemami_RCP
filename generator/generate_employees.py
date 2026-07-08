@@ -24,6 +24,9 @@ def get_status():
         return "Active"
     else:
         return "Inactive"
+    
+def get_modified_date():
+    return
 
 def generate_employees(positions_df):
     rows = []
@@ -52,4 +55,4 @@ if __name__ == "__main__":
     positions_df = generate_positions(departments_df)
     df = generate_employees(positions_df)
     print(df)
-    df.to_csv("output/employees.csv", index=False)
+    df.to_csv(f"{config.CSV_OUTPUT_DIRECTORY}/employees.csv", index=False)

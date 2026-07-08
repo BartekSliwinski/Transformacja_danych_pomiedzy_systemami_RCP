@@ -78,7 +78,7 @@ if __name__ == "__main__":
     departments_df = generate_departments()
     positions_df = generate_positions(departments_df)
     employees_df = generate_employees(positions_df)
-    
+
     df = generate_worklogs(employees_df, device_df, positions_df, departments_df)
     print(df)
-    df.to_csv("output/worklogs.csv", index=False)
+    df.to_csv(f"{config.CSV_OUTPUT_DIRECTORY}/worklogs.csv", index=False)

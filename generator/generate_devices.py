@@ -5,7 +5,7 @@ import pandas as pd
 def generate_devices():
     df = pd.DataFrame({
         "DeviceID": range(1, config.NUM_OF_DEVICES+1),
-        "Location": config.DEVICES,
+        "DeviceName": config.DEVICES,
     })
     return df
 
@@ -13,4 +13,4 @@ def generate_devices():
 if __name__ == "__main__":
     device_df = generate_devices()
     print(device_df)
-    device_df.to_csv("output/devices.csv", index=False)
+    device_df.to_csv(f"{config.CSV_OUTPUT_DIRECTORY}/devices.csv", index=False)

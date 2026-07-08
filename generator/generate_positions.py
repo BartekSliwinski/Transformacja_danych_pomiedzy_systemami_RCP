@@ -26,4 +26,4 @@ if __name__ == "__main__":
     departments_df = generate_departments()
     df = generate_positions(departments_df)
     print(df)
-    df.to_csv("output/positions.csv", index=False)
+    df.to_csv(f"{config.CSV_OUTPUT_DIRECTORY}/positions.csv", index=False)

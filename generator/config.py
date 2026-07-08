@@ -1,3 +1,5 @@
+CSV_OUTPUT_DIRECTORY = "output"
+
 NUM_OF_EMPLOYEES = 500
 
 YEARS_OF_DATA = 2
@@ -89,7 +91,7 @@ DEVICES = [
     "MAIN01", "MAIN02", "MAIN03",
     "SERVICE01", 
     "WAREHOUSE01",
-    "Production01", "Production02"
+    "PRODUCTION01", "PRODUCTION02"
 ]
 NUM_OF_DEVICES = len(DEVICES)
 
