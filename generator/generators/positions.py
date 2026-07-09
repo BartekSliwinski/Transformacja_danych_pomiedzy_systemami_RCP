@@ -1,6 +1,6 @@
 import config
 import pandas as pd
-from generate_departments import generate_departments
+from generators.departments import generate_departments
 
 def generate_positions(departments_df):
     department_map = {

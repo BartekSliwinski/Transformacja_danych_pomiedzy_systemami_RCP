@@ -1,11 +1,11 @@
 import config
 import os
 import time
-from generate_employees import generate_employees
-from generate_positions import generate_positions
-from generate_departments import generate_departments
-from generate_devices import generate_devices
-from generate_worklogs import generate_worklogs
+from generators.employees import generate_employees
+from generators.positions import generate_positions
+from generators.departments import generate_departments
+from generators.devices import generate_devices
+from generators.worklogs import generate_worklogs
 
 
 os.makedirs(config.CSV_OUTPUT_DIRECTORY, exist_ok=True)

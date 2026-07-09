@@ -3,8 +3,8 @@ import pandas as pd
 from faker import Faker
 import random
 from datetime import datetime, timedelta
-from generate_positions import generate_positions
-from generate_departments import generate_departments
+from generators.positions import generate_positions
+from generators.departments import generate_departments
 
 fake = Faker("pl_PL")
 random.seed(config.SEED)
