@@ -1,4 +1,7 @@
 # Generator syntetycznych danych do sytemu Rejestracji Czasu Pracy
+
+Program do generowania danych o pracownikach i zdarzeniach wejścia/wyjścia na początek i koniec ich dnia pracy. 
+
 -- zdjęcie z bazy danych połączonych tabel--
 ## Spis treści
 
@@ -11,9 +14,9 @@
 
 ## O projekcie
 
-Program ten powstał jako część większego projektu. Więcej o nim można przeczytać [tutaj](https://github.com/BartekSliwinski/Transformacja_danych_pomiedzy_systemami_RCP).
+Program ten powstał jako część większego projektu. Więcej o nim możesz przeczytać [tutaj](https://github.com/BartekSliwinski/Transformacja_danych_pomiedzy_systemami_RCP).
 
-Jego zadaniem jest generowanie realistycznych danych w formie plików .csv, 
+Służy on do generowania realistycznych danych do systemów RCP. Jego wynikiem końcowym są pliki w formie **csv**, które mogą posłużyć do stworzenia bazy danych lub arkusza.
 <!-- aaa -->
 
 ## Główne funkcje
@@ -48,7 +51,9 @@ Upewnij się, że masz zainstalowane:
 
 ### Instalacja i uruchomienie
 
-1. Klonowanie repozytorium Github:
+Podążaj za podanymi poniżej krokami aby uruchomić generator na swojej maszynie. Zwróć uwagę na komendy zależne od systemu operacyjnego.
+
+1. Sklonuj repozytorium Github:
 
     ```bash
     git clone https://github.com/BartekSliwinski/Transformacja_danych_pomiedzy_systemami_RCP.git
