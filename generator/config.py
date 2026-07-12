@@ -1,5 +1,7 @@
 CSV_OUTPUT_DIRECTORY = "output"
 
+RUN_VALIDATIONS = True
+
 NUM_OF_EMPLOYEES = 500
 
 HIRING_STARTING_DATE = "2020-01-01"
@@ -8,22 +10,19 @@ SIMULATION_START_DATE = "2025-01-01"
 SIMULATION_END_DATE = "2026-12-31"
 
 WORKING_HOURS_START = 6
-#WORKING_HOURS_END = 18
-
 
 SEED = 67
 
 ACTIVE_EMPLOYEE_RATIO = 0.92
 
+
+ADD_ERRORS = True
 MISSING_EVENT_RATIO = 0.02
 DUPLICATE_EVENT_RATIO = 0.01
 
-# WORKING_DAYS_PER_WEEK = 5
-# AVG_SHIFTS_PER_EMPLOYEE = 1
-
 OVERTIME_PROBABILITY = 0.15
 SHIFT_DURATION_MEAN = 8
-SHIFT_DURATION_STD = 0.15
+SHIFT_DURATION_STD = 0.05
 
 POSITIONS_IN_DEPARTMENTS = {
     "IT": [
@@ -96,12 +95,12 @@ DEVICES = [
 NUM_OF_DEVICES = len(DEVICES)
 
 DEPARTMENT_DEVICES = {
-    "IT": ["MAIN01", "MAIN02"],
-    "HR": ["MAIN01"],
-    "Finance": ["MAIN01", "MAIN03"],
-    "Sales": ["MAIN02", "MAIN03"],
-    "Marketing": ["MAIN02"],
-    "Production": ["PRODUCTION01", "PRODUCTION02"],
-    "Warehouse": ["WAREHOUSE01"],
-    "Support": ["SERVICE01", "MAIN03"]
+    "IT": [1, 2],
+    "HR": [1],
+    "Finance": [1, 3],
+    "Sales": [2, 3],
+    "Marketing": [2],
+    "Production": [6, 7],
+    "Warehouse": [5],
+    "Support": [4, 3]
 }

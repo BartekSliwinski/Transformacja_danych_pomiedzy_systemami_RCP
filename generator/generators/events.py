@@ -1,6 +1,5 @@
 import config
 import pandas as pd
-from datetime import datetime, timedelta
 import holidays
 import random
 from errors.worklog_errors import get_worklogs_errors
@@ -44,7 +43,7 @@ def get_overtime_minutes():
     return overtime
 
 
-def generate_worklogs(employees_df, positions_df, departments_df):
+def generate_events(employees_df, positions_df, departments_df):
     employee_devices_lookup = create_employee_devices_lookup(employees_df, positions_df, departments_df)
     
     days = get_working_days()
@@ -54,7 +53,7 @@ def generate_worklogs(employees_df, positions_df, departments_df):
         employees_working_ids = employees_that_worked_that_day["EmployeeID"].to_list()
 
         for employee_id in employees_working_ids:
-            starting_time = day + timedelta(hours=config.WORKING_HOURS_START)+ timedelta(seconds=get_start_offset())
+            starting_time = day + pd.Timedelta(hours=config.WORKING_HOURS_START) + pd.Timedelta(seconds=get_start_offset())
             device = random.choice(list(employee_devices_lookup[employee_id]))
 
             start_of_shift = {
@@ -69,14 +68,18 @@ def generate_worklogs(employees_df, positions_df, departments_df):
                 "EventType": "OUT",
                 "EventTime": (
                     starting_time + 
-                    timedelta(hours=round(get_shift_duration(), 2)) +
-                    timedelta(minutes=get_overtime_minutes())
+                    pd.Timedelta(hours=round(get_shift_duration(), 2)) +
+                    pd.Timedelta(minutes=get_overtime_minutes())
                 )
             }
-            events = get_worklogs_errors(start_of_shift, end_of_shift)
+            if config.ADD_ERRORS:
+                events = get_worklogs_errors(start_of_shift, end_of_shift)
+            else:
+                events = [start_of_shift, end_of_shift]
             rows.extend(events)
 
     df = pd.DataFrame(rows)
     df = df.sort_values(by=["EventTime"], ascending=True)
-    df.insert(0, "WorkLogID", range(1, len(df)+1))
+    df.insert(0, "EventID", range(1, len(df)+1))
+    df["EventTime"] = df["EventTime"].dt.floor('s')
     return df
