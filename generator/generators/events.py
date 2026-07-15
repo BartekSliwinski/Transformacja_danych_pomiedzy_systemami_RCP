@@ -2,7 +2,7 @@ import config
 import pandas as pd
 import holidays
 import random
-from errors.worklog_errors import get_worklogs_errors
+from errors.event_errors import get_event_errors
 
 random.seed(config.SEED)
 
@@ -73,7 +73,7 @@ def generate_events(employees_df, positions_df, departments_df):
                 )
             }
             if config.ADD_ERRORS:
-                events = get_worklogs_errors(start_of_shift, end_of_shift)
+                events = get_event_errors(start_of_shift, end_of_shift)
             else:
                 events = [start_of_shift, end_of_shift]
             rows.extend(events)

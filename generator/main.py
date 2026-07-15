@@ -28,7 +28,7 @@ def save_dataframe(df, filename, start_time, current_total_size):
         f"({elapsed_time:.3f}s, {file_size_mb:.2f} MB)"
     )
     
-    if filename == "worklogs":
+    if filename == "events":
         return new_total_size, df_len
     return new_total_size, None
 

@@ -20,7 +20,7 @@ def is_it_the_starting_event():
     return random.random() < 0.5
     
 
-def get_worklogs_errors(start_of_shift, end_of_shift):
+def get_event_errors(start_of_shift, end_of_shift):
     match select_error_type():
         case "IDEAL":
             return [start_of_shift, end_of_shift]

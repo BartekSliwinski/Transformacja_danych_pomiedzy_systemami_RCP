@@ -84,7 +84,7 @@ Zmiana wartości w pliku konfiguracyjnym pozwala dostosować między innymi rozm
 | `CSV_OUTPUT_DIRECTORY` | Folder, w którym zapisywane są wygenerowane pliki CSV. |
 | `RUN_VALIDATIONS` | Określa, czy po zakończeniu generowania danych mają zostać automatycznie uruchomione walidatory. |
 | `NUM_OF_EMPLOYEES` | Liczba pracowników generowanych w ramach symulacji. Wpływa bezpośrednio na ilość wygenerowanych danych. |
-| `ACTIVE_EMPLOYEE_RATIO` | Określa udział aktywnych pracowników w całej populacji. Pozostali pracownicy otrzymują status nieaktywny. |
+| `ACTIVE_EMPLOYEE_RATIO` | Określa udział aktywnych pracowników w całej populacji. Pozostali pracownicy otrzymują status nieaktywny. Pole ostatniej modyfikacji w ich przypadku oznacza date zwolnienia. Do tej daty takiemu pracownikowi generowane są zdarzenia.|
 | `HIRING_STARTING_DATE` | Najwcześniejsza możliwa data zatrudnienia pracownika. |
 | `SIMULATION_START_DATE` | Początek okresu, dla którego generowane są zdarzenia czasu pracy. |
 | `SIMULATION_END_DATE` | Koniec okresu, dla którego generowane są zdarzenia czasu pracy. |
@@ -155,6 +155,7 @@ Słownik `DEPARTMENT_DEVICES` określa, z których urządzeń mogą korzystać p
 
 Pozwala to ograniczyć losowanie urządzeń podczas generowania zdarzeń i zachować większą spójność pomiędzy strukturą organizacji a historią rejestracji czasu pracy.
 
+Przypisanie odbywa się na podstawie identyfikatorów urządzeń z pliku `devices.csv`
 ### Generowanie błędów
 
 Generator umożliwia kontrolowane wprowadzanie nieprawidłowości do danych wejścia i wyjścia. Funkcja ta pozwala symulować rzeczywiste problemy występujące w systemach Rejestracji Czasu Pracy oraz testować procesy walidacji i transformacji danych.
@@ -174,6 +175,9 @@ DUPLICATE_EVENT_RATIO = 0.01
 ```
 
 oznacza, że podczas generowania danych zostanie aktywowany mechanizm błędów, który będzie dodawał wybrane nieprawidłowości z określonym prawdopodobieństwem.
+
+\*\*<span style="color: gray;"> Ustawienie w konfiguracji wartości `ADD_ERRORS` na True razem z `RUN_VALIDATIONS` prowadzi z założenia do negatywnego wyniku dla niektórych z testów walidacyjnych.</span>
+
 
 ## Technologie i narzędzia
 
