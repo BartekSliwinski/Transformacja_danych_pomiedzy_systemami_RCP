@@ -1,0 +1,45 @@
+---
+config:
+  layout: elk
+---
+erDiagram
+    DEPARTMENT ||--o{ POSITION : contains
+    POSITION ||--o{ EMPLOYEE : "assigned to"
+    DEVICES ||--o{ EVENTS : generates
+    EMPLOYEE ||--o{ EVENTS : triggers
+
+    DEPARTMENT {
+        INT DepartmentID PK
+        STRING DepartmentName
+    }
+
+    POSITION {
+        INT PositionID PK
+        STRING PositionName
+        INT DepartmentID FK
+    }
+
+    EMPLOYEE {
+        INT EmployeeID PK
+        STRING FirstName
+        STRING LastName
+        INT PositionID FK
+        STRING PhoneNumber
+        STRING Email
+        ENUM Status
+        DATETIME HireDate
+        DATETIME ModifiedDate
+    }
+
+    DEVICES {
+        INT DeviceID PK
+        STRING DeviceName
+    }
+
+    EVENTS {
+        INT EventID PK
+        INT EmployeeID FK
+        INT DeviceID FK
+        STRING EventType
+        DATETIME EventTime
+    }
