@@ -40,14 +40,17 @@ Poniższy diagram Mermaid ilustruje główne etapy przetwarzania danych w projek
 
 ```mermaid
 flowchart LR
-    Generator[Generator danych (CSV)] --> CSV[Pliki CSV]
-    CSV --> Konektor[Konektor SQL]
-    Konektor --> OnPrem[MS SQL Server (on-premises)]
+    Generator["Generator danych (CSV)"] --> CSV["Pliki CSV"]
+    CSV --> Konektor["Konektor SQL"]
+    Konektor --> OnPrem["MS SQL Server (on-premises)"]
+
     subgraph Azure ["Microsoft Azure"]
         AzureSQL["Azure SQL Database"]
         DataFactory["Azure Data Factory"]
         Databricks["Azure Databricks"]
     end
+
     OnPrem --> AzureSQL
     AzureSQL --> DataFactory
     DataFactory --> Databricks
+```
